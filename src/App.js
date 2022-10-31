@@ -51,7 +51,12 @@ function Navbar(props){
 
 function CountdownComponent(props) {
 
-  var date1 = new Date("2021-12-01T00:00:00");
+  // var lastday = function(y,m){
+  //   return  new Date(y, m + 2, 0).getDate();
+  //   }
+ var nnn = 11;
+  var currentYear = new Date().getFullYear();
+  var date1 = new Date(currentYear, nnn);
   var date2 = new Date();
   var difference_In_Time = date1.getTime() - date2.getTime();
 
@@ -73,6 +78,11 @@ function CountdownComponent(props) {
     }
   };
 
-  return <Countdown date={Date.now() + difference_In_Time} renderer={renderer}/>
+ 
+
+  return <>
+    {date2.toLocaleDateString()} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {new Date(2022, 11).toLocaleDateString()}
+    <Countdown date={Date.now() + difference_In_Time} renderer={renderer}/>
+  </>
 }
 
